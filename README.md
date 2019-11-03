@@ -1,3 +1,8 @@
+Steps:
+
+- create-nx-workspace angular-core-workshop --preset=empty --cli=angular --npmScope=workshop
+-
+
 # FirstAngularWorkspace
 
 This project was generated using [Nx](https://nx.dev).
