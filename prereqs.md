@@ -1,0 +1,1 @@
+- type `nvm use` in order to use the right node version

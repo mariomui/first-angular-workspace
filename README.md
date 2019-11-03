@@ -1,7 +1,41 @@
-Steps:
+## install the nx workspace
 
-- create-nx-workspace angular-core-workshop --preset=empty --cli=angular --npmScope=workshop
--
+- `npx create-nx-workspace angular-core-workshop --preset=empty --cli=angular --npmScope=workshop`
+  - presets give capabilities like react or angular stuff (no idea)
+  - cli installs angular cli as well as all that start tuff shit.
+  - npmscope does some stuff.
+- ## install the nrwl schematics for the scss
+  - `npm install -D @nrwl/schematics`
+  - make sure that in angular.json,
+    - cli.defaultCollection = @nrwl/schematics
+      - that was psuedocode
+    - ```
+      cli {
+        defaultCollection: "@nrwl/schematics"
+      }
+      ```
+- ## configure new projects to default/use sass
+  - `npm run ng -- config \ schematics.@nrwl/schematics:component.stylext scss`
+    - places a json sturction inside angular.json
+    - ```json
+      schematics {
+        @nrwl/schematics:component {
+          styleext: scss
+        }
+      }
+      ```
+- ## generate an app inside this workspace
+  - `ng generate app dashboard --routing -p=app --style=scss` (add optional --dry-run)
+    - translation: ng, please `generatate` an `app` template named `dashboard`, give it routing, (-p)prefix all the components we will create with app, style would be scss (if default wasn't set.) (--dry-run would test all the folder and file creations but not actually create the files so you don't have to delete the generated artifactes manually if you snafued)
+    - you really dont need to put --style here. we defaulted earlier.
+  - now you can have multiple apps inside the apps folder
+- ## Serve your app
+  - npm run ng -- serve --port=4300
+    - i serve at 4300.
+    - you could specify dev or prod with -c
+      - i need to learn how to do prod and dev environments.
+    - --disable-host-check (runs stuff super insecurely)
+      - `npm run ng -- serve --host="0.0.0.0"
 
 # FirstAngularWorkspace
 
